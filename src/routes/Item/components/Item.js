@@ -3,13 +3,13 @@ import './Item.scss'
 
 export const Item = (props) => (
   <div>
+    <button className='btn btn-primary' onClick={props.generateItem}>
+      Generate Item
+    </button>
     <h2 className="name">{props.item.name}</h2>
     <ul className="description">
     {props.item.descriptions.map(description => <li>{description}</li>)}
     </ul>
-    <button className='btn btn-primary' onClick={props.generateItem}>
-      Generate Item
-    </button>
   </div>
 )
 

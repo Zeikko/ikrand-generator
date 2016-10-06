@@ -86,7 +86,15 @@ function getFeatures(type, aspects) {
 }
 
 function getRandom(parents, arr) {
-  const randomType = arr[_.random(0, arr.length - 1)]
+  const max = _.chain(arr)
+    .map('probability')
+    .sum()
+    .value()
+  let random = _.random(0, max)
+  const randomType = _.find(arr, item => {
+    random -= item.probability
+    return random <= 0
+  })
   const children = getChildren(randomType.name)
   if(children.length) {
     return getRandom([...parents, randomType.name], children)

@@ -27,7 +27,10 @@ export function getFeatureTable() {
 
 function update() {
   readSpreadsheet('https://docs.google.com/spreadsheets/d/1ruAQ7ANPyhweh-sJFZ7iijCY9JTB86iHXZavtLsacD8/pub?gid=0&single=true&output=csv').then(data => {
-    typeTable = data
+    typeTable = _.map(data, type => {
+      type.probability = type.probability.length ? parseInt(type.probability) : 1
+      return type
+    })
   })
 
   readSpreadsheet('https://docs.google.com/spreadsheets/d/1CEwom9L3QxZHLjfaDtB1PB8g5aiErmcuQZ7LQciNpcw/pub?gid=0&single=true&output=csv').then(data => {
