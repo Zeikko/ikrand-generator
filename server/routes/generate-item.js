@@ -64,7 +64,7 @@ function createDescription(type, features) {
 
 function getFeatures(type, aspects) {
   return _.chain(featureTable)
-    .filter(feature => type.parents.includes(feature.type))
+    .filter(feature => _.includes(type.parents, feature.type))
     .shuffle()
     .reduce((result, feature, key) => {
       const aspectsMatch = _.chain(feature.aspects)
