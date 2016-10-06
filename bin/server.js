@@ -1,3 +1,4 @@
+require('babel-register')
 const config = require('../config')
 const server = require('../server/index')
 const debug = require('debug')('app:bin:server')
