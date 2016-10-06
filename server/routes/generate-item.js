@@ -17,7 +17,7 @@ export function generateItem(req, res) {
   const features = getFeatures(type, aspects)
   res.json({
     name: createName(type, features),
-    description: createDescription(type, features),
+    descriptions: createDescriptions(type, features),
     features,
     type
   })
@@ -49,7 +49,7 @@ function createName(type, features) {
 }
 
 
-function createDescription(type, features) {
+function createDescriptions(type, features) {
   const nameMap = [
     'The ' + type.name,
     'It',
@@ -59,7 +59,6 @@ function createDescription(type, features) {
       return result = [...result, feature.description.replace('%item%', nameMap[key])]
     }, [type.description || null])
     .filter(description => description)
-    .value().join('\n')
 }
 
 function getFeatures(type, aspects) {

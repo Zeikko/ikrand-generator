@@ -41,7 +41,7 @@ const ACTION_HANDLERS = {
   [GENERATE_ITEM] : (state, action) => {
     return {
       name: action.payload.name,
-      description: action.payload.description
+      descriptions: action.payload.descriptions
     }
   }
 }
@@ -49,7 +49,9 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = {}
+const initialState = {
+  descriptions: []
+}
 export default function itemReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 

@@ -1,1 +1,1 @@
-web: npm install && npm run compile && npm run start
+web: npm run compile && npm run start
