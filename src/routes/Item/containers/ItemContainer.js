@@ -1,14 +1,13 @@
 import { connect } from 'react-redux'
-import { generateItem } from '../modules/item'
+import { actions } from '../modules/item'
 
 import Item from '../components/Item'
 
-const mapDispatchToProps = {
-  generateItem
-}
+const mapDispatchToProps = actions
 
 const mapStateToProps = (state) => ({
-  item : state.item
+  item: state.item,
+  itemTypes: state.itemTypes
 })
 
 

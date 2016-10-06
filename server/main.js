@@ -4,11 +4,13 @@ const webpack = require('webpack')
 const webpackConfig = require('../build/webpack.config')
 const config = require('../config')
 import { generateItem } from './routes/generate-item'
+import { getItemTypes } from './routes/get-item-types'
 
 const app = express()
 const paths = config.utils_paths
 
 app.get('/generate-item', generateItem);
+app.get('/item-types', getItemTypes)
 
 // This rewrites all routes requests to the root /index.html file
 // (ignoring file requests). If you want to implement universal
