@@ -1,6 +1,5 @@
 import React from 'react'
 import './HomeView.scss'
-import { generateItem } from '../../../redux/item'
 
 export const HomeView = () => (
   <div>
