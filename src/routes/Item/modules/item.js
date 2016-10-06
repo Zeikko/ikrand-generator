@@ -110,7 +110,7 @@ const initialState = {
   itemTypes: [],
   parameters: {
     type: 'item',
-    enchantments: 1
+    enchantments: 'random'
   }
 }
 export default function itemReducer (state = initialState, action) {
